@@ -1,21 +1,32 @@
-//
-//  ContentView.swift
-//  Examio
-//
-//  Created by Lika Demetrashvili on 9/8/26.
-//
-
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            VStack(spacing: 16) {
+                NavigationLink(destination: SubjectView()) {
+                    HStack {
+                        Text("ქართული ენა")
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                        
+                        Spacer()
+
+                        Text("🇬🇪")
+                            .font(.title)
+                    }
+                    .padding()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(Color.gray.opacity(0.1))
+                    .clipShape(RoundedRectangle(cornerRadius: 16))
+                }
+                .buttonStyle(.plain)
+            }
+            .padding()
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+            .navigationTitle("საგნები")
+            .navigationBarTitleDisplayMode(.large)
         }
-        .padding()
     }
 }
 
