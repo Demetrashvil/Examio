@@ -6,7 +6,7 @@ struct LiteratureView: View {
 
     var body: some View {
         NavigationStack {
-            Group {
+            VStack {
                 if let errorMessage {
                     ContentUnavailableView(
                         "შეცდომა",
@@ -17,7 +17,9 @@ struct LiteratureView: View {
                     ProgressView("იტვირთება...")
                 } else {
                     List(works) { work in
-                        NavigationLink(destination: ChapterListView(work: work)) {
+                        NavigationLink(
+                            destination: ChapterListView(work: work)
+                        ) {
                             VStack(alignment: .leading, spacing: 5) {
                                 Text(work.title)
                                     .font(.title3)
@@ -43,4 +45,3 @@ struct LiteratureView: View {
         }
     }
 }
-
